@@ -1,7 +1,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('fs'),path=require('path'),{pathToFileURL}=require('url');
 const dir=path.resolve(__dirname,'..'),out=path.join(dir,'.tmp','regression-qa');fs.mkdirSync(out,{recursive:true});
-const html=path.join(dir,'20261006_PED_StPaulsExamMaker_v1.0.html');
+const html=path.join(dir,'exam-maker.html');
 const results=[];const check=(ok,name)=>{results.push({ok,name});console.log((ok?'PASS ':'FAIL ')+name);if(!ok)throw Error(name);};
 (async()=>{
 const browser=await chromium.launch({...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:{}),headless:true,args:['--disable-gpu']});
@@ -11,7 +11,7 @@ const page=await ctx.newPage(),errors=[],requests=[];
 page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
 await ctx.setOffline(true);await page.goto(pathToFileURL(html).href);await page.waitForFunction(()=>window.SphiExamMaker?.ready,{timeout:30000});
 check((await page.locator('#bankCount').innerText()).includes('6,700'),'loads embedded bank offline');
-await page.screenshot({path:path.join(out,'desktop.png'),fullPage:true});
+await page.screenshot({path:path.join(out,'desktop.png'),fullPage:false});
 await page.getByText('Repeat an earlier draw',{exact:true}).click();await page.locator('#seed').fill('20261006');await page.locator('#generate').click();await page.locator('#downloads').waitFor({state:'visible'});
 let exam=await page.evaluate(()=>SphiExamMaker.exam);check(exam.questions.length===50,'default draw has exactly 50 questions');
 check(new Set(exam.questions.map(q=>q.sec)).size===33,'default draw covers all 33 chosen sections');
@@ -24,7 +24,7 @@ for(const [button,name] of [['downloadPaper','exam.pdf'],['downloadKey','key.pdf
  const event=page.waitForEvent('download',{timeout:120000});await page.locator('#'+button).click();const download=await event;await download.saveAs(path.join(out,name));check(!await download.failure(),name+' direct download succeeds offline');
  await page.waitForFunction(()=>SphiExamMaker.ready);check(fs.statSync(path.join(out,name)).size>10000,name+' contains PDF data');
 }
-await page.screenshot({path:path.join(out,'generated.png'),fullPage:true});
+await page.screenshot({path:path.join(out,'generated.png'),fullPage:false});
 await page.locator('#generate').click();await page.locator('#downloads').waitFor({state:'visible'});
 check(await page.evaluate(code=>SphiExamMaker.exam.code===code,exam.code),'same seed and settings reproduce the exam');
 await page.locator('#questionCount').fill('40');check(await page.locator('#downloads').isHidden(),'settings change prevents stale PDF downloads');
@@ -49,7 +49,7 @@ await page.locator('#traditionalOnly').uncheck();await page.locator('#clearTopic
 check(await page.evaluate(()=>SphiExamMaker.exam.questions.filter(q=>q.isK).length<=8),'legacy Type K cap holds when enabled');
 await page.locator('#questionCount').fill('2.5');await page.locator('#generate').click();check((await page.locator('#status').innerText()).includes('whole number'),'fractional counts rejected');
 await page.locator('#questionCount').fill('20');await page.locator('#seed').fill('4294967296');await page.locator('#generate').click();check((await page.locator('#status').innerText()).includes('Seed must'),'invalid seed rejected');
-await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(out,'mobile.png'),fullPage:true});check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'390px mobile layout has no horizontal overflow');
+await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(out,'mobile.png'),fullPage:false});check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'390px mobile layout has no horizontal overflow');
 await page.setViewportSize({width:320,height:844});check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'320px mobile layout has no horizontal overflow');
 await page.keyboard.press('Tab');check(await page.evaluate(()=>document.activeElement!==document.body),'keyboard focus reaches interactive controls');
 check(errors.length===0,'no browser runtime errors');check(requests.length===0,'zero network requests in offline run');

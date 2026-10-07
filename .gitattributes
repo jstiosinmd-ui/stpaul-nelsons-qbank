@@ -1,8 +1,8 @@
-*.html -text whitespace=cr-at-eol
+* text=auto
+*.html -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 *.pdf binary
+*.png binary
 *.zip binary
-*.md -text whitespace=cr-at-eol
+*.md text eol=lf
 *.cjs text eol=lf
 *.py text eol=lf
-.gitignore text eol=lf
-.gitattributes text eol=lf

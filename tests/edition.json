@@ -1,0 +1,20 @@
+{
+  "key": "StPauls",
+  "code": "SPHI",
+  "short": "St. Paul's Iloilo",
+  "hospital": "St. Paul's Hospital of Iloilo",
+  "namespace": "Sphi",
+  "study": true,
+  "brand": "sphi",
+  "primary": "#005229",
+  "secondary": "#007D42",
+  "accent": "#FAAE1C",
+  "paper": "#F0F3F0",
+  "wash": "#E8F4EB",
+  "line": "#C7DACD",
+  "muted": "#5E5E5E",
+  "ink": "#0C0D0C",
+  "header": "ST. PAUL'S HOSPITAL OF ILOILO",
+  "platform": "St. Paul's Iloilo Pediatrics Exam Studio",
+  "zip": "20261007_SPHI_PediatricsExamStudio_v2.0.zip"
+}

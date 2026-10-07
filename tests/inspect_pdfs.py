@@ -14,9 +14,10 @@ docs={name:fitz.open(QA/(name+'.pdf')) for name in ['exam','key','compact-key']}
 for name,d in docs.items():
     check(all(abs(p.rect.width-595.276)<.1 and abs(p.rect.height-841.89)<.1 for p in d),name+' uses A4 pages')
     check(all(f'Page {i+1} of {len(d)}' in p.get_text() for i,p in enumerate(d)),name+' has page numbers on every page')
-    check(all('/jstiosin 2026' in p.get_text() for p in d),name+' has credit on every page')
-    check(all("ST. PAUL'S HOSPITAL OF ILOILO" in p.get_text() for p in d),name+' has St Paul header on every page')
-    check(all('CAPITOL' not in p.get_text() for p in d),name+' has no Capitol branding')
+    check(all('(c) jstiosin 2026' in p.get_text() for p in d),name+' has credit on every page')
+    check(all("ST. PAUL'S HOSPITAL OF ILOILO" in p.get_text() for p in d),name+' has the institutional header on every page')
+    check(all('/jstiosin 2026' not in p.get_text() for p in d),name+' has no old credit format')
+    check(all('Jon Bryan S. Tiosin, MD' in p.get_text() for p in d),name+' has full author name on every page')
     violations=[]
     for i,p in enumerate(d):
         for b in p.get_text('dict')['blocks']:

@@ -1,59 +1,80 @@
-# St. Paul's Pediatrics Question Bank and Exam Maker
+# St. Paul's Iloilo Pediatrics Exam Studio
 
----
+**St. Paul's Hospital of Iloilo | v2.0 | October 7, 2026**
 
-Mobile-friendly, offline study tools for St. Paul's Hospital of Iloilo, using the saved institutional palette and original hospital logo. Both tools contain the same 6,700 Nelson Textbook of Pediatrics, 21st-edition questions across 33 sections.
+Created by **Jon Bryan S. Tiosin, MD**. **(c) jstiosin 2026** appears on every HTML page and every generated PDF page, including blank answer sheets and compact keys.
 
-## Download and use
+An offline, mobile-friendly workspace for assembling pediatric practice exams from the existing 6,700-question Nelson Textbook of Pediatrics, 21st-edition bank. It also includes a question bank for self-study.
 
-Download the [complete offline package](20261006_PED_StPaulsNelsonsTools_v1.0.zip), extract it, and open either HTML file in a compatible browser. Alternatively, download the repository ZIP, extract it, and open `index.html` to choose a tool. GitHub's HTML source view does not run the tools.
+## Open the studio
 
-- [Question bank HTML](20261006_PED_StPaulsQuestionBank_v1.0.html): section exams, scoring, timed attempts, flags, explanations, references, and saved progress with backup/import.
-- [Exam maker HTML](20261006_PED_StPaulsExamMaker_v1.0.html): question count, subject sections or specific topics, difficulty, and matching PDF exports.
-- [Usage guide](20261006_PED_StPaulsToolsGuide_v1.0.md).
-- [Sample exam and blank answer sheet](20261006_PED_StPaulsSampleExam_v1.0.pdf).
-- [Sample answer key with explanations](20261006_PED_StPaulsSampleExam_v1.0_AnswerKey.pdf).
+Download the [complete offline package](20261007_SPHI_PediatricsExamStudio_v2.0.zip), extract it, and open **[index.html](index.html)** in a browser that supports local HTML apps. Keep the extracted files together for navigation. GitHub's HTML source view does not run the application.
 
-Each tool is self-contained, with its questions, software, styles, and assets embedded. Keep both HTML files together to use the links between them. On mobile, prepare a PDF, then tap its **Save or open** link. Desktop downloads start directly. The credit `/jstiosin 2026` appears in the HTML footers and on every generated PDF page, including blank answer sheets and compact keys.
+- [index.html](index.html): the hospital-branded landing page.
+- [exam-maker.html](exam-maker.html): question count, topics, difficulty, and matching PDF exports.
+- [question-bank.html](question-bank.html): section practice, scoring, timed attempts, flags, explanations, references, and saved progress with backup/import.
+- [Sample exam with blank answer sheet](samples/exam.pdf): 12 pages.
+- [Sample answer key with explanations](samples/answer-key.pdf): 28 pages.
 
-The HTML files contain answer keys. Share the question bank for self-study; distribute the generated question-paper PDF to examinees when withholding answers.
+Each application HTML embeds its own questions, scripts, styles, logo, PDF libraries, and fonts. No account, installation, server, or internet connection is needed to generate exams. A file previewer that does not execute JavaScript cannot operate the applications.
+
+## Generate an exam
+
+1. Open **Exam maker** from the landing page. Enter the exam title, date, duration, and number of questions.
+2. Select sections or specific topics. The question count must allow at least one question per selected group.
+3. Choose Easy, Average, Difficult, Mixed, or a custom difficulty mix. Traditional single-best-answer questions are selected by default. The optional legacy Type K setting retains the 40% cap.
+4. Choose whether to include rationales and references in the key, then select **Generate exam**. Review the draw five questions at a time.
+5. On desktop, download the question paper and answer key. On mobile, tap **Prepare exam PDF** or **Prepare answer key PDF**, then tap its **Save or open** link. If a preview opens, use the browser's Save or Share control.
+
+The paper and key use the same questions, order, and exam code. The paper includes a blank answer sheet. Changing settings clears the old draw and PDF links. Download the PDFs and optional JSON exam record before closing the tab; the current draw is not automatically saved. Record import is not implemented. Repeatable draws use the same seed and settings.
+
+On phones, **Setup**, **Topics**, and **Your exam** shortcuts reduce scrolling. The bottom action button changes from generating the exam to viewing PDFs and hides while entering text or numbers. Layouts, navigation, and touch targets adapt to narrow screens.
+
+The HTML applications contain the complete question pool and answers. Keep the exam maker and answer key with examiners, and distribute the question-paper PDF to examinees. Standalone HTML cannot conceal embedded answer data.
+
+## Content and design
+
+The unchanged bank contains 6,700 questions across 33 sections and 579 distinct topic labels. Traditional single-best-answer questions account for 5,190 items. Section 18 retains the corrected September 29, 2026 Respiratory System content. Section 34, Laboratory Medicine, is not included. Legacy identifiers, answer letters, rationales, and references are preserved.
+
+This release changes presentation, navigation, and attribution. It does not perform a fresh clinical source review. Difficulty labels are editorial estimates, not measured item difficulty. Use the existing bank for practice and mock assessments.
+
+The saved St. Paul's Iloilo palette uses hospital greens, pale green surfaces, and restrained gold accents. The original hospital logo is preserved without alteration. These are established workspace palettes, not a claim of published official hospital brand manuals. PDFs use A4 pages and embedded Calibri fonts.
+
+## Screenshots
+
+![Studio landing page](screenshots/landing-desktop.png)
+
+[View the mobile landing page](screenshots/landing-mobile.png).
 
 ## Verification
 
-Release v1.0 was built and checked October 6, 2026:
+Verified on October 7, 2026: **824 checks passed**.
 
-- 60 mobile exam-maker checks and 32 browser regression checks passed offline.
-- 65 question-bank checks passed, including scoring, filters, saved progress, backup/import, and navigation between tools.
-- 629 PDF checks passed, including content and answer parity, margins, fonts, page numbering, institutional headers, and the exact credit on every page.
-- All 41 pages of the sample paper, detailed key, and compact test key were rendered and visually inspected.
-- Mobile layouts were tested at 320, 360, 390, 430, 768, and 932 px; desktop at 1440 px. No horizontal overflow, runtime errors, or network requests occurred in the tested workflows.
+- **35 landing checks**: branding, embedded logo, credit, responsive layout, navigation, and edition-specific question-bank availability.
+- **60 mobile exam-maker checks**: widths of 320, 360, 390, 430, 768, and 932 px, touch controls, topic search, validation, preview pagination, and PDF save links.
+- **32 browser regression checks**: offline generation, direct PDF downloads, topic and difficulty allocation, repeatable draws, invalid settings, and stale-download prevention.
+- **65 question-bank checks**: practice workflows, scoring, filters, persistence, backups, and navigation.
+- **632 PDF checks**: content and answer parity, references, A4 size, margins, fonts, page numbers, institutional headers, full author name, and exact copyright credit on every page.
 
-Testing used Chrome desktop and touch emulation. Physical phones and Safari were not tested. A local-file previewer that does not execute JavaScript cannot operate the tools. Large draws can take longer on mobile devices.
+All 41 pages of the sample paper, detailed key, and compact test key were rendered and visually inspected. Desktop and mobile landing screenshots were inspected. Additional mobile-download PDFs were checked for the full name and credit on every page. The sample uses 50 questions, seed `20261006`, and exam code `143YVH2`.
 
-The two application HTML files, sample PDFs, guide, and offline ZIP in this repository are byte-identical to the tested deliverables.
+Testing used Chrome desktop and touch emulation with the network disabled. Physical phones and Safari were not tested. Large draws can take more time and memory on mobile devices. These checks validate software behavior and source-data preservation, not clinical correctness.
 
-## Tests
-
-With Node.js, Playwright, and its Chromium browser installed, run from the repository root:
+With Node.js, Playwright, and its Chromium browser installed, run from this repository:
 
 ```sh
+node tests/landing.cjs
 node tests/mobile.cjs
 node tests/regression.cjs
 node tests/study.cjs
 ```
 
-Optionally set `BROWSER_PATH` to an installed Chrome/Edge executable and `PLAYWRIGHT_MODULE` to an existing Playwright package location. After the regression suite creates its sample PDFs, run the PDF checks with Python, PyMuPDF, and Pillow installed:
+Optionally set `BROWSER_PATH` to an installed Chrome/Edge executable and `PLAYWRIGHT_MODULE` to an existing Playwright package. After the regression suite generates PDFs, run the PDF checks with Python, PyMuPDF, and Pillow:
 
 ```sh
 python tests/inspect_pdfs.py
 ```
 
-Test evidence is written under the ignored `.tmp/` directory. Test tooling is not required to use the HTML apps.
+Test outputs go under ignored `.tmp/`; landing screenshots also refresh `screenshots/`. Test tooling is not needed to use the studio.
 
-## Content and design provenance
-
-This edition preserves the legacy CMC question content, with the corrected September 29, 2026 Respiratory System section. Section 34, Laboratory Medicine, remains pending. This presentation adaptation did not conduct a fresh clinical source review; difficulty labels are editorial estimates.
-
-The saved September 13, 2026 St. Paul's palette uses hospital greens, light green surfaces, and restrained gold accents. It is an operational visual system derived from the hospital's existing materials, not a claim of a published official brand manual. The logo is preserved without alteration. PDFs use A4 pages and embedded Calibri fonts.
-
-PDF generation embeds [pdf-lib](https://pdf-lib.js.org/) and [fontkit](https://github.com/Hopding/fontkit); attribution information is included in the exam maker. This repository grants no additional rights to third-party references, fonts, software, or institutional marks.
+PDF generation embeds [pdf-lib](https://pdf-lib.js.org/) and [fontkit](https://github.com/Hopding/fontkit), with their attribution retained in the HTML. This repository grants no additional rights to third-party references, fonts, software, or institutional marks.
