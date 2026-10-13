@@ -1,70 +1,78 @@
 {
-  "version": "2.2",
+  "version": "2.3",
   "status": "complete",
-  "date": "2026-10-13",
-  "built": "2026-10-13T11:34:17.562281+00:00",
-  "imported": 1000,
-  "eligible": 1000,
-  "held": 0,
-  "revised": 53,
-  "unchanged_legacy_content": 947,
-  "difficulty_counts": {
-    "Easy": 121,
-    "Average": 870,
-    "Difficult": 9
-  },
+  "built": "2026-10-13T14:37:42.218246+00:00",
+  "based_on": "2.2",
+  "question_content_changed": false,
+  "nelson_questions": 6700,
+  "board_questions": 1000,
   "bank_hash": "56d30c443b196c2b1dfaa57f75d4c420bf4fbf739715606e6ed1d3ba40e81653",
-  "source_review_scope": 53,
-  "difficulty_is_editorial": true,
+  "nelson_practice_hash": "b871e29aef79951fe25215c808e10bb69fae143394f695b965c8960388737fe2",
   "validation_counts": {
-    "static": 80,
-    "browser": 225,
-    "pdf": 204,
-    "final": 17
+    "static_and_package": 102,
+    "browser": 380
   },
+  "browser_counts": {
+    "PGH": 80,
+    "StPauls": 80,
+    "CMC": 80,
+    "DLSMC": 79,
+    "navigation": 61
+  },
+  "revised_board_questions": 53,
+  "legacy_board_questions": 947,
   "edition": "StPauls",
   "credit": "(c) jstiosin 2026",
   "author": "Jon Bryan S. Tiosin, MD",
-  "nelson_bank_unchanged": true,
-  "source_release_manifest": "20261013_PED_StudioManifest_v2.2.json",
-  "source_release_manifest_sha256": "003069b7d89801695d9fbb0fa76a4218786d7bbfd1a297a8e52868f53efa047c",
-  "validation_scope": "Counts are from the completed four-edition local release. Publishing verifies exact file and ZIP bytes, staged Git bytes, navigation, and creator credits.",
+  "source_release_manifest": "20261013_PED_StudioManifest_v2.3.json",
+  "source_release_manifest_sha256": "722670e8e27b13dc93926d52126e4f2a787702a56d2ceab1ccb3bee3a0a13f02",
+  "validation_scope": "Software, content preservation, and packaging. Counts cover all four local editions; no new clinical review or PDF audit.",
   "files": [
+    {
+      "path": "README.md",
+      "source_release_path": "StPauls/README.md",
+      "size": 1779,
+      "sha256": "d31c0424f38584b869a6003913423326e14bd69de18ab3080aeefa4881b4a924"
+    },
     {
       "path": "boards-mock.html",
       "source_release_path": "StPauls/boards-mock.html",
-      "size": 3651443,
-      "sha256": "818042d4be7f4e19fadaeb7449f41e0039225030deb4e79fe0b52ab132acce09"
+      "size": 3651469,
+      "sha256": "53057ba83f6e349141f2243c990e985e9fbb97102b2a0ca12b5ed71d3b1da42d"
     },
     {
       "path": "exam-maker.html",
       "source_release_path": "StPauls/exam-maker.html",
-      "size": 14767678,
-      "sha256": "71d3f8e5b846a14ab3556e691c02394c44666edac9b110856f0b755f13ba10ae"
+      "size": 14766359,
+      "sha256": "73d151575b589d215c96e34f520c0b524a36413da0d079bbe71ee91fd79193cb"
     },
     {
       "path": "index.html",
       "source_release_path": "StPauls/index.html",
-      "size": 67485,
-      "sha256": "fdc953aeeed13932ccfefe78448468bc97f2d339b44db93f49f833581b4caa9f"
+      "size": 67164,
+      "sha256": "70f656eb7446519c1027ef0fbb21a349af11c37eb0ea74c820cd1f448edeed0a"
     },
     {
       "path": "question-bank.html",
       "source_release_path": "StPauls/question-bank.html",
-      "size": 9450631,
-      "sha256": "90295865089146ce37ac8087432ef3886e3f8a7e1fb5a791ca5a7d480fc3d7b5"
+      "size": 13028796,
+      "sha256": "773eee315f1eae1a84934ccae307f0ce8cf2750fd231ac019d46573e1b6a5995"
     },
     {
-      "path": "README.md",
-      "source_release_path": "StPauls/README.md",
-      "size": 1379,
-      "sha256": "459ec378ef88d9aa4908c90d371dfaf9b369fd6e2e74cbce7486a6c95234afa3"
+      "path": "20261013_SPHI_PediatricsExamStudio_v2.3.zip",
+      "source_release_path": "20261013_SPHI_PediatricsExamStudio_v2.3.zip",
+      "size": 6659613,
+      "sha256": "b9d03c26c58db0cdd3588d18b7e469d0d69890503e1d9422f8d65231c828d509"
+    }
+  ],
+  "test_files": [
+    {
+      "path": "tests/edition.json",
+      "sha256": "d810a85793a9f2f2a394b26d0ed0c06b7e9bce741c4a9a053476109b332ba54e"
     },
     {
-      "path": "20261013_SPHI_PediatricsExamStudio_v2.2.zip",
-      "source_release_path": "20261013_SPHI_PediatricsExamStudio_v2.2.zip",
-      "size": 6063450,
-      "sha256": "df4e688c2a318392e925c95753e0fe6286c449bd16954d52527493bea426805d"
+      "path": "tests/practice.cjs",
+      "sha256": "a761fe23ecc99776c175745e75110919e6e570554814c87657e075efd6b3a9ad"
     }
   ]
 }
